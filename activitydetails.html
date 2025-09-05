@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css"/>
     <title>activitydetails</title>
-    <script type="module" crossorigin src="/AAPDTEST2/assets/main-DZXwq6Vk.js"></script>
-    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-DClBXTnt.css">
+    <script type="module" crossorigin src="/AAPDTEST2/assets/main-q0169lNP.js"></script>
+    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-CoPazfXz.css">
   </head>
   <body class="bgprimarycolor py-0">
     
@@ -68,7 +68,7 @@
                 
                 <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus"><i class="bi bi-dash text-neutral-400"></i></button>
                 
-                <input type="text" class="form-control text-center border-neutral-400" value="1" id="quantity-input" readonly>
+                <input type="text" class="form-control text-center border-neutral-400" value="4" id="quantity-input" readonly>
                 
                 <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus"><i class="bi bi-plus"></i></button>
 
@@ -79,13 +79,16 @@
                 <p style="font-size: 13px; color: #C64508;">時間均為當日24:00</p>
             </div>
 
-            <input class="form-control mb-9" type="text" id="myDatepickerInput" readonly="" placeholder="2025/07/26" value="">
+            <form class="position-relative">
+                <input class="form-control lh-base px-6 py-4" type="text" id="myDatepickerInput" readonly="" placeholder="2025/07/26" value="" style="letter-spacing: 0.04rem;">
+                <span class="position-absolute end-0 translate-middle-y pe-6 text-neutral-300" style="top: 20.5px;"><img src="data:image/svg+xml,%3csvg%20width='24'%20height='25'%20viewBox='0%200%2024%2025'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M19%204.5H5C3.89543%204.5%203%205.39543%203%206.5V20.5C3%2021.6046%203.89543%2022.5%205%2022.5H19C20.1046%2022.5%2021%2021.6046%2021%2020.5V6.5C21%205.39543%2020.1046%204.5%2019%204.5Z'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M16%202.5V6.5'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M8%202.5V6.5'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M3%2010.5H21'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="" class="mb-1"></span>                
+                <div id="datepicker-container" class="bg-white mt-5 shadow-xl rounded-4"></div>
+            </form>
             
-
         </div>
     </section>
     
-    <div class="d-grid container">
+    <div class="d-grid container  mt-9">
         <a href="./wanttosay.html" type="button" class="btn btn-danger text-white fw-bold" style="padding-left: 44.5px; padding-right: 44.5px; padding-top: 12px; padding-bottom: 12px;">下一步</a>
     </div>
     
@@ -97,34 +100,14 @@
         const zh = {
         days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
         daysShort: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
-        daysMin: ["日", "一", "二", "三", "四", "五", "六"],
+        daysMin: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
         months: [
-            "一月",
-            "二月",
-            "三月",
-            "四月",
-            "五月",
-            "六月",
-            "七月",
-            "八月",
-            "九月",
-            "十月",
-            "十一月",
-            "十二月",
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
         ],
         monthsShort: [
-            "1月",
-            "2月",
-            "3月",
-            "4月",
-            "5月",
-            "6月",
-            "7月",
-            "8月",
-            "9月",
-            "10月",
-            "11月",
-            "12月",
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
         ],
         today: "今天",
         clear: "清除",
@@ -138,21 +121,20 @@
 
         // 加入月曆
         const dp = new AirDatepicker("#myDatepickerInput", {
-        // inline: true,
         locale: zh,
+        container: "#datepicker-container",
+        dateFormat: "yyyy/MM/dd",
+        autoClose: true,
         navTitles: {
             days: `
                 <div class="custom-nav-title">
-                    <span class="nav-year">yyyy 年</span>
-                    <span class="nav-month">M 月</span>
+                    <span class="nav-month me-2">MMMM</span>
+                    <span class="nav-year">yyyy</span>
                 </div>
             `,
         },
         showOtherMonths: false,
-        autoClose: true,
-                
-               
-
+        autoClose: false,                       
         });
         dp.disableDate(disabledDate);
     </script>
