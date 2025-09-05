@@ -36,4 +36,118 @@ html{
 
 .uploadbgcolor {
   background-color: #FAFAFA;
+<<<<<<< Updated upstream
 }
+=======
+}
+
+
+// 三角形向下
+
+.index-text {
+    position: relative;
+    // background-color: #FFDAA8;
+    border-radius: 16px;
+    padding: 13px 18px;
+    font-size: 14px;
+    display: block;
+    z-index: 3;
+}
+
+
+.index-triangle:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: rotate(45deg);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px;
+    border-color: transparent transparent #FFDAA8;
+    z-index: 2;
+}
+
+.index-triangle:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: rotate(45deg);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 12px 12px;
+    border-color: transparent transparent #FFA552;
+    z-index: 1;
+}
+
+
+
+/* 預設情況下，隱藏啟用狀態的圖片 */
+.nav-link .img-active {
+  display: none;
+}
+.nav-link .img-inactive {
+  display: inline-block; 
+}
+
+// 擬態
+.nav-link:hover .img-active {
+  display: inline-block;
+}
+.nav-link:hover .img-inactive {
+  display: none;
+}
+
+
+/* 當 nav-link 按鈕被啟用 (多了 .active class) 時 */
+.nav-link.active .img-active {
+  display: inline-block; /* 顯示啟用狀態的圖片 */
+}
+.nav-link.active .img-inactive {
+  display: none; /* 隱藏非啟用狀態的圖片 */
+}
+
+.progress-line {
+  position: relative;
+}
+.progress-line::before {
+  content: "";
+  position: absolute;
+  background-color: #BDBDBD; 
+  height: 1px; 
+  width: 190px; 
+  top: 47px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1; 
+}
+
+.progress-line.step-2::before {
+  content: '';
+  position: absolute;    
+  background: linear-gradient(to right, #C64508 50%, #BDBDBD 50%);  
+  height: 1px;
+  width: 190px; 
+  top: 47px; 
+  left: 50%; 
+  z-index: -1; 
+}
+
+.progress-line.step-3::before {
+  content: '';
+  position: absolute;  
+  background-color: #C64508; 
+  height: 1px;
+  width: 190px; 
+  top: 47px; 
+  left: 50%;   
+  z-index: -1; 
+} 
+>>>>>>> Stashed changes
