@@ -6,10 +6,21 @@ html{
 }
 
 .bgcrewup {
-  background: url("../assets/images/home-bg.png");
+  background: url("../assets/images/index-img/home-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: scroll;  
+  background-position: center bottom 55px;
 }
+
+.bgflower {
+  background-image:url("../assets/images/index-img/bg.png"), url("../assets/images/index-img/bg-2.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right top;
+  background-size: 180px ,auto 100%;
+  
+}
+
 
 .partnerborder {
   border: 1px solid #FFA552;  
@@ -36,9 +47,6 @@ html{
 
 .uploadbgcolor {
   background-color: #FAFAFA;
-<<<<<<< Updated upstream
-}
-=======
 }
 
 
@@ -147,7 +155,6 @@ html{
   height: 1px;
   width: 190px; 
   top: 47px; 
-  left: 50%;   
+  left: 50%;  
   z-index: -1; 
-} 
->>>>>>> Stashed changes
+}
