@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css"/>
+    <title>activitydetails</title>
+  </head>
+  <body class="bgprimarycolor py-0">
+    
+    <section>
+        <img src="../assets/images/index-img/section.png" alt="" style="width: 343px; margin: 0 auto; display: block; padding-top: 16px;">
+        
+        <div class="mb-6 py-6 px-7 d-flex justify-content-between align-items-center">
+            <a href="./activity.html"><i class="bi bi-arrow-left-short" style="font-size: 24px; color: #C64508;"></i></a>
+            <p class="text-center" style="font-size: 18px; font-weight: 700;">建立活動</p>
+            <a href="./index.html"><i class="bi bi-x" style="font-size: 24px; color: #C64508;"></i></a>
+        </div>
+        
+        <!-- <img class="mb-3" src="../assets/images/index-img/activityprocess-2.png" alt="" style="width: 250px; margin: 0 auto; display: block;">      -->
+        
+        <div class="d-flex mb-6 pb-5 justify-content-center gap-8 progress-line step-2" style="margin-top: -34px;">
+            <div>
+                <a class="d-block" href="./activity.html"><i class="bi bi-dot" style="font-size: 60px; color: #C64508;"></i></a>
+                <a class="d-block" href="./activity.html" style="color: #C64508; margin-top: -32px; font-size: 15px;">活動主題</a>
+            </div>
+            <div>
+                <a class="d-block" href="./activitydetails.html"><i class="bi bi-dot" style="font-size: 60px; color: #C64508;"></i></a>
+                <a class="d-block" href="./activitydetails.html" style="color: #C64508; margin-top: -32px; font-size: 15px;">活動詳情</a>
+            </div><div>
+                <a class="d-block" href="./wanttosay.html"><i class="bi bi-dot" style="font-size: 60px; color: #BDBDBD;"></i></a>
+                <a class="d-block" href="./wanttosay.html" style="color: #BDBDBD; margin-top: -32px; font-size: 15px;">想說的話</a>
+            </div>
+        </div>
+
+    </section>
+    
+    <section>
+        <div class="container">
+            <div class="mb-5">
+                <label for="exampleFormControlInput1" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動名稱：</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="活動名稱">
+            </div>
+            <div class="mb-5">
+                <label for="exampleFormControlInput2" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動天數：</label>
+                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="活動天數">
+            </div>
+            <div class="mb-5">
+                <label for="exampleFormControlInput3" class="form-label"><span class="me-2" style="color: #C64508;">*</span>開始日期：</label>
+                <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="2025/07/26">
+            </div>
+            <div class="mb-5">
+                <label for="exampleFormControlInput4" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動目標：</label>
+                <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="活動目標">
+                <p class="text-end text-neutral-400 mt-1 pb-5 border-bottom" style="font-size: 12px;">0/30</p>
+            </div>
+            <p class="mb-5" style="font-size: 15px;">設定報名資訊</p>
+            <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>可報名人數：</p>
+                                        
+            <div class="input-group mb-5" style="width: 137px;">
+                
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus"><i class="bi bi-dash text-neutral-400"></i></button>
+                
+                <input type="text" class="form-control text-center border-neutral-400" value="1" id="quantity-input" readonly>
+                
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus"><i class="bi bi-plus"></i></button>
+
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>報名截止日期：</p>
+                <p style="font-size: 13px; color: #C64508;">時間均為當日24:00</p>
+            </div>
+
+            <input class="form-control mb-9" type="text" id="myDatepickerInput" readonly="" placeholder="2025/07/26" value="">
+            
+
+        </div>
+    </section>
+    
+    <div class="d-grid container">
+        <a href="./wanttosay.html" type="button" class="btn btn-danger text-white fw-bold" style="padding-left: 44.5px; padding-right: 44.5px; padding-top: 12px; padding-bottom: 12px;">下一步</a>
+    </div>
+    
+    
+
+    <script type="module" src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+    <script>
+        // 語系資料
+        const zh = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+        daysShort: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+        daysMin: ["日", "一", "二", "三", "四", "五", "六"],
+        months: [
+            "一月",
+            "二月",
+            "三月",
+            "四月",
+            "五月",
+            "六月",
+            "七月",
+            "八月",
+            "九月",
+            "十月",
+            "十一月",
+            "十二月",
+        ],
+        monthsShort: [
+            "1月",
+            "2月",
+            "3月",
+            "4月",
+            "5月",
+            "6月",
+            "7月",
+            "8月",
+            "9月",
+            "10月",
+            "11月",
+            "12月",
+        ],
+        today: "今天",
+        clear: "清除",
+        format: "yyyy/MM/dd",
+        timeFormat: "hh:mm aa",
+        firstDay: 0,
+        };
+
+        // 設定停用日期
+        const disabledDate = ["2025-08-01", "2025-08-05"];
+
+        // 加入月曆
+        const dp = new AirDatepicker("#myDatepickerInput", {
+        // inline: true,
+        locale: zh,
+        navTitles: {
+            days: `
+                <div class="custom-nav-title">
+                    <span class="nav-year">yyyy 年</span>
+                    <span class="nav-month">M 月</span>
+                </div>
+            `,
+        },
+        showOtherMonths: false,
+        autoClose: true,
+                
+               
+
+        });
+        dp.disableDate(disabledDate);
+    </script>
+  </body>
+</html>
