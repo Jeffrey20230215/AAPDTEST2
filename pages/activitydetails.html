@@ -55,10 +55,11 @@
                 <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="2025/07/26">
             </div>
             <div class="mb-5">
-                <label for="exampleFormControlInput4" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動目標：</label>
-                <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="活動目標">
-                <p class="text-end text-neutral-400 mt-1 pb-5 border-bottom" style="font-size: 12px;">0/30</p>
+                <label for="activity-goal-input" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動目標：</label>
+                <input type="text" class="form-control" id="activity-goal-input" placeholder="活動目標" maxlength="30">
+                <p id="char-counter" class="text-end text-neutral-400 mt-1 pb-5 border-bottom" style="font-size: 12px;">0/30</p>
             </div>
+
             <p class="mb-5" style="font-size: 15px;">設定報名資訊</p>
             <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>可報名人數：</p>
                                         
@@ -137,13 +138,14 @@
         });
         dp.disableDate(disabledDate);
     </script>
-
-    <script>
-    
+    <!-- 按鈕計算人數功能 -->
+    <script>    
     function insc() {        
         const quantityInput = document.getElementById("quantity-input");
-        let currentValue = parseInt(quantityInput.value);        
-        quantityInput.value = currentValue + 1;
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 5){ 
+            quantityInput.value = currentValue + 1;
+        }
     }
     
     function dec() {        
@@ -153,6 +155,18 @@
             quantityInput.value = currentValue - 1;
         }
     }
+    </script>
+    <!-- 偵測輸入文字數量功能 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {        
+        const goalInput = document.getElementById('activity-goal-input');
+        const charCounter = document.getElementById('char-counter');        
+        const maxLength = goalInput.getAttribute('maxlength');        
+        goalInput.addEventListener('input', function() {            
+            const currentLength = goalInput.value.length;            
+            charCounter.textContent = `${currentLength}/${maxLength}`;
+        });
+    });
     </script>
   </body>
 </html>
