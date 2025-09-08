@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css"/>
     <title>activitydetails</title>
-    <script type="module" crossorigin src="/AAPDTEST2/assets/main-q0169lNP.js"></script>
-    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-CoPazfXz.css">
+    <script type="module" crossorigin src="/AAPDTEST2/assets/main-yGrETjaB.js"></script>
+    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-DonVODXJ.css">
   </head>
   <body class="bgprimarycolor py-0">
     
@@ -66,11 +66,11 @@
                                         
             <div class="input-group mb-5" style="width: 137px;">
                 
-                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus"><i class="bi bi-dash text-neutral-400"></i></button>
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus" onclick="dec()"><i class="bi bi-dash text-neutral-400"></i></button>
                 
-                <input type="text" class="form-control text-center border-neutral-400" value="4" id="quantity-input" readonly>
+                <input type="number" class="form-control text-center border-neutral-400" value="1" id="quantity-input" min="1">
                 
-                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus"><i class="bi bi-plus"></i></button>
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus" onclick="insc()"><i class="bi bi-plus"></i></button>
 
             </div>
 
@@ -137,6 +137,23 @@
         autoClose: false,                       
         });
         dp.disableDate(disabledDate);
+    </script>
+
+    <script>
+    
+    function insc() {        
+        const quantityInput = document.getElementById("quantity-input");
+        let currentValue = parseInt(quantityInput.value);        
+        quantityInput.value = currentValue + 1;
+    }
+    
+    function dec() {        
+        const quantityInput = document.getElementById("quantity-input");        
+        let currentValue = parseInt(quantityInput.value);       
+        if (currentValue > 1) {            
+            quantityInput.value = currentValue - 1;
+        }
+    }
     </script>
   </body>
 </html>
