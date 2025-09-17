@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css"/>
-    <title>activitydetails</title>
-    <script type="module" crossorigin src="/AAPDTEST2/assets/main-q0169lNP.js"></script>
-    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-CoPazfXz.css">
+    <title>建立活動-活動詳情｜Crew Up!</title>
+    <script type="module" crossorigin src="/AAPDTEST2/assets/main-BB1zSD7C.js"></script>
+    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-B19Q9zII.css">
   </head>
   <body class="bgprimarycolor py-0">
     
@@ -57,20 +57,21 @@
                 <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="2025/07/26">
             </div>
             <div class="mb-5">
-                <label for="exampleFormControlInput4" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動目標：</label>
-                <input type="email" class="form-control" id="exampleFormControlInput4" placeholder="活動目標">
-                <p class="text-end text-neutral-400 mt-1 pb-5 border-bottom" style="font-size: 12px;">0/30</p>
+                <label for="activity-goal-input" class="form-label"><span class="me-2" style="color: #C64508;">*</span>活動目標：</label>
+                <input type="text" class="form-control" id="activity-goal-input" placeholder="活動目標" maxlength="30">
+                <p id="char-counter" class="text-end text-neutral-400 mt-1 pb-5 border-bottom" style="font-size: 12px;">0/30</p>
             </div>
+
             <p class="mb-5" style="font-size: 15px;">設定報名資訊</p>
             <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>可報名人數：</p>
                                         
             <div class="input-group mb-5" style="width: 137px;">
                 
-                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus"><i class="bi bi-dash text-neutral-400"></i></button>
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-minus" onclick="dec()"><i class="bi bi-dash text-neutral-400"></i></button>
                 
-                <input type="text" class="form-control text-center border-neutral-400" value="4" id="quantity-input" readonly>
+                <input type="number" class="form-control text-center border-neutral-400" value="1" id="quantity-input" min="1">
                 
-                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus"><i class="bi bi-plus"></i></button>
+                <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus" onclick="insc()"><i class="bi bi-plus"></i></button>
 
             </div>
 
@@ -137,6 +138,36 @@
         autoClose: false,                       
         });
         dp.disableDate(disabledDate);
+    </script>
+    <!-- 按鈕計算人數功能 -->
+    <script>    
+    function insc() {        
+        const quantityInput = document.getElementById("quantity-input");
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue < 5){ 
+            quantityInput.value = currentValue + 1;
+        }
+    }
+    
+    function dec() {        
+        const quantityInput = document.getElementById("quantity-input");        
+        let currentValue = parseInt(quantityInput.value);       
+        if (currentValue > 1) {            
+            quantityInput.value = currentValue - 1;
+        }
+    }
+    </script>
+    <!-- 偵測輸入文字數量功能 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {        
+        const goalInput = document.getElementById('activity-goal-input');
+        const charCounter = document.getElementById('char-counter');        
+        const maxLength = goalInput.getAttribute('maxlength');        
+        goalInput.addEventListener('input', function() {            
+            const currentLength = goalInput.value.length;            
+            charCounter.textContent = `${currentLength}/${maxLength}`;
+        });
+    });
     </script>
   </body>
 </html>

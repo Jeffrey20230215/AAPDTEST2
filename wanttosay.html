@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">    
-    <title>activitydetails</title>
-    <script type="module" crossorigin src="/AAPDTEST2/assets/main-q0169lNP.js"></script>
-    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-CoPazfXz.css">
+    <title>建立活動-想說的話｜Crew Up!</title>
+    <script type="module" crossorigin src="/AAPDTEST2/assets/main-BB1zSD7C.js"></script>
+    <link rel="stylesheet" crossorigin href="/AAPDTEST2/assets/main-B19Q9zII.css">
   </head>
   <body class="bgprimarycolor pt-0">
     
@@ -42,9 +42,9 @@
         <img class="mb-5" src="/AAPDTEST2/assets/cubi-DRKpZXXW.png" alt="" style="width: 100px; margin: 0 auto; display: block;">
         <!-- <p class="text-center mb-4">有想對參加活動的朋友說的話嗎？</p> -->
         <div class="container text-center mb-6">
-            <label for="exampleFormControlTextarea1" class="form-label">有想對參加活動的朋友說的話嗎？</label>
-            <textarea class="form-control mb-2" style="height: 120px;" id="exampleFormControlTextarea1" placeholder="想說的話" rows="3"></textarea>
-            <p class="text-neutral-400 text-end" style="font-size: 12px;">0/30</p>
+            <label for="activity-goal-input" class="form-label">有想對參加活動的朋友說的話嗎？</label>
+            <textarea class="form-control mb-2" style="height: 120px;" id="activity-goal-input" placeholder="想說的話" rows="3" maxlength="30"></textarea>
+            <p id="char-counter" class="text-neutral-400 text-end" style="font-size: 12px;">0/30</p>
         </div> 
     </section>
 
@@ -56,6 +56,17 @@
     
     
 
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {        
+        const goalInput = document.getElementById('activity-goal-input');
+        const charCounter = document.getElementById('char-counter');        
+        const maxLength = goalInput.getAttribute('maxlength');        
+        goalInput.addEventListener('input', function() {            
+            const currentLength = goalInput.value.length;            
+            charCounter.textContent = `${currentLength}/${maxLength}`;
+        });
+    });
+    </script>
         
   </body>
 </html>
