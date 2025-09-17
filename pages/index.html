@@ -14,7 +14,7 @@
   <body data-page="home">    
     <%- include('./layout/header'); -%>
 
-    <main class="bgprimarycolor">
+    <main class="bgprimarycolor position-relative">
 
       <section class="bgcrewup ">
         <h2 class="fw-bold text-center py-7" style="font-size: 24px;">Hello! 林薇</h2>
@@ -66,6 +66,9 @@
         </div>
       </section>
       
+      <!-- 增加活動圓形按鈕 -->
+        <a style="bottom: 76px; right: 12px" class="position-fixed z-1" href="./activity.html"><img src="../assets/images/index-img/btn-create-activities.png" alt=""></a>
+
       <!-- 熱門活動 -->
       <section class="mb-7" style="padding-bottom: 19px;"> 
   
@@ -75,10 +78,8 @@
         <div class="container justify-content-center">
           <div class="row d-flex flex-nowrap overflow-auto">
   
-            <div class="me-5 p-6 bg-white rounded-4 shadow-sm position-relative">
-  
-              <!-- 增加活動圓形按鈕 -->
-              <a style="bottom: 36px;" class="position-absolute start-100 translate-middle z-1" href="./activity.html"><img src="../assets/images/index-img/btn-create-activities.png" alt=""></a>
+            <div class="me-5 p-6 bg-white rounded-4 shadow-sm position-relative"> 
+              
   
               <div class="mb-5 p-0 d-flex justify-content-between">
                 <div>
@@ -177,7 +178,7 @@
               <p style="font-size: 14px;" class="text-center">放鬆身心</p>
             </div>
             <div class="col-3">
-              <img class="d-block mx-auto" src="../assets/images/index-img/icon-park-solid_relax.png" alt="" class="d-block">
+              <img class="d-block mx-auto" src="../assets/images/index-img/icon-park-solid_knowlege.png" alt="" class="d-block">
               <p style="font-size: 14px;" class="text-center">學習新知</p>
             </div>
           </div>
@@ -188,7 +189,7 @@
         
         <div class="mx-auto d-grid" style="width: 183px;">
           <p class="text-center mb-5" style="font-weight: 500;">有其他感興趣的活動嗎?</p>
-          <a href="./activity.html" type="button" class="btn btn-danger text-white fw-bold" style="padding-left: 44.5px; padding-right: 44.5px; padding-top: 12px; padding-bottom: 12px;"><i class="bi bi-plus align-items-bottom" style="font-size: 24px;"></i>建立活動</a>
+          <a href="./activity.html" type="button" class="d-flex align-items-center btn btn-danger text-white fw-bold" style="padding-left: 44.5px; padding-right: 44.5px; padding-top: 12px; padding-bottom: 12px;"><i class="bi bi-plus" style="font-size: 24px;"></i>建立活動</a>
         </div>        
       </section> 
       
