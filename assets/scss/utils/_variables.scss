@@ -1086,10 +1086,12 @@ $input-border-radius-sm:                var(--#{$prefix}border-radius-sm) !defau
 $input-border-radius-lg:                var(--#{$prefix}border-radius-lg) !default;
 
 $input-focus-bg:                        $input-bg !default;
-$input-focus-border-color:              tint-color($component-active-bg, 50%) !default;
+// $input-focus-border-color:              tint-color($component-active-bg, 50%) !default; //修改
+$input-focus-border-color:              $accent !default;
 $input-focus-color:                     $input-color !default;
 $input-focus-width:                     $input-btn-focus-width !default;
-$input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
+// $input-focus-box-shadow:                $input-btn-focus-box-shadow !default; //修改
+$input-focus-box-shadow:                none !default;
 
 // $input-placeholder-color:               var(--#{$prefix}secondary-color) !default; //修改
 $input-placeholder-color:               $neutral-400 !default;
