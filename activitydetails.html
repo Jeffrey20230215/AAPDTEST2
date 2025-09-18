@@ -19,9 +19,9 @@
         <!-- <img src="../assets/images/index-img/section.png" alt="" style="width: 343px; margin: 0 auto; display: block; padding-top: 16px;"> -->
         
         <div class="mb-6 py-6 px-7 d-flex justify-content-between align-items-center">
-            <a href="./activity.html"><i class="bi bi-arrow-left-short" style="font-size: 24px; color: #C64508;"></i></a>
+            <a href="./activity.html"><i class="bi bi-arrow-left-short" style="font-size: 28px; color: #C64508;"></i></a>
             <p class="text-center" style="font-size: 18px; font-weight: 700;">建立活動</p>
-            <a href="./index.html"><i class="bi bi-x" style="font-size: 24px; color: #C64508;"></i></a>
+            <a href="./index.html"><i class="bi bi-x" style="font-size: 28px; color: #C64508;"></i></a>
         </div>
         
         <!-- <img class="mb-3" src="../assets/images/index-img/activityprocess-2.png" alt="" style="width: 250px; margin: 0 auto; display: block;">      -->
@@ -74,6 +74,9 @@
                 <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus" onclick="insc()"><i class="bi bi-plus"></i></button>
 
             </div>
+            <!-- 提醒最多5人數限制 -->
+            <p id="quantity-error" class="text-danger d-none ms-10" style="font-size: 12px; margin-top: -10px;">數字不得超過5</p>
+            
 
             <div class="d-flex justify-content-between">
                 <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>報名截止日期：</p>
@@ -82,7 +85,7 @@
 
             <form class="position-relative">
                 <input class="form-control lh-base px-6 py-4" type="text" id="myDatepickerInput" readonly="" placeholder="2025/07/26" value="" style="letter-spacing: 0.04rem;">
-                <span class="position-absolute end-0 translate-middle-y pe-6 text-neutral-300" style="top: 20.5px;"><img src="data:image/svg+xml,%3csvg%20width='24'%20height='25'%20viewBox='0%200%2024%2025'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M19%204.5H5C3.89543%204.5%203%205.39543%203%206.5V20.5C3%2021.6046%203.89543%2022.5%205%2022.5H19C20.1046%2022.5%2021%2021.6046%2021%2020.5V6.5C21%205.39543%2020.1046%204.5%2019%204.5Z'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M16%202.5V6.5'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M8%202.5V6.5'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M3%2010.5H21'%20stroke='%23292929'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="" class="mb-1"></span>                
+                <span class="position-absolute end-0 translate-middle-y pe-6 text-neutral-300" style="top: 20.5px;"><img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%23BDBDBD'%3e%3cpath%20d='M200-80q-33%200-56.5-23.5T120-160v-560q0-33%2023.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33%200%2056.5%2023.5T840-720v560q0%2033-23.5%2056.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0%200v-80%2080Z'/%3e%3c/svg%3e" alt="" class="mb-1"></span>                
                 <div id="datepicker-container" class="bg-white mt-5 shadow-xl rounded-4"></div>
             </form>
             
@@ -167,6 +170,54 @@
             const currentLength = goalInput.value.length;            
             charCounter.textContent = `${currentLength}/${maxLength}`;
         });
+    });
+    </script>
+    <!-- 提醒最多五人限制 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function () {        
+        const quantityInput = document.getElementById('quantity-input');
+        const plusBtn = document.getElementById('button-plus');
+        const minusBtn = document.getElementById('button-minus');
+        const errorMessage = document.getElementById('quantity-error');
+        const maxLimit = 5;
+        
+        function checkValue() {            
+            setTimeout(function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue >= maxLimit) {                    
+                    errorMessage.classList.remove('d-none');
+                } else {                    
+                    errorMessage.classList.add('d-none');
+                }
+            }, 0);
+        }        
+        plusBtn.addEventListener('click', checkValue);
+        minusBtn.addEventListener('click', checkValue);        
+        quantityInput.addEventListener('input', checkValue);
+    });
+    </script>
+    <!-- 新增輸入框字數限制的提示 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {        
+        
+        const goalInput = document.getElementById('activity-goal-input');
+        const charCounter = document.getElementById('char-counter');
+        
+        const maxLength = goalInput.getAttribute('maxlength');
+        
+        goalInput.addEventListener('input', function() {            
+            const currentLength = goalInput.value.length;            
+            charCounter.textContent = `${currentLength}/${maxLength}`;
+            
+            if (currentLength >= maxLength) {                
+                goalInput.classList.add('is-invalid');
+                charCounter.classList.add('text-danger');
+            } else {                
+                goalInput.classList.remove('is-invalid');
+                charCounter.classList.remove('text-danger');
+            }
+        });
+
     });
     </script>
   </body>
