@@ -17,9 +17,9 @@
         <!-- <img src="../assets/images/index-img/section.png" alt="" style="width: 343px; margin: 0 auto; display: block; padding-top: 16px;"> -->
         
         <div class="mb-6 py-6 px-7 d-flex justify-content-between align-items-center">
-            <a href="./activity.html"><i class="bi bi-arrow-left-short" style="font-size: 24px; color: #C64508;"></i></a>
+            <a href="./activity.html"><i class="bi bi-arrow-left-short" style="font-size: 28px; color: #C64508;"></i></a>
             <p class="text-center" style="font-size: 18px; font-weight: 700;">建立活動</p>
-            <a href="./index.html"><i class="bi bi-x" style="font-size: 24px; color: #C64508;"></i></a>
+            <a href="./index.html"><i class="bi bi-x" style="font-size: 28px; color: #C64508;"></i></a>
         </div>
         
         <!-- <img class="mb-3" src="../assets/images/index-img/activityprocess-2.png" alt="" style="width: 250px; margin: 0 auto; display: block;">      -->
@@ -72,6 +72,9 @@
                 <button style="font-size: 24px; background-color: #FAFAFA; --bs-btn-padding-y:0.125em;" class="btn btn-outline-neutral-400 px-4" type="button" id="button-plus" onclick="insc()"><i class="bi bi-plus"></i></button>
 
             </div>
+            <!-- 提醒最多5人數限制 -->
+            <p id="quantity-error" class="text-danger d-none ms-10" style="font-size: 12px; margin-top: -10px;">數字不得超過5</p>
+            
 
             <div class="d-flex justify-content-between">
                 <p class="mb-1"><span class="me-2" style="color: #C64508;">*</span>報名截止日期：</p>
@@ -80,7 +83,7 @@
 
             <form class="position-relative">
                 <input class="form-control lh-base px-6 py-4" type="text" id="myDatepickerInput" readonly="" placeholder="2025/07/26" value="" style="letter-spacing: 0.04rem;">
-                <span class="position-absolute end-0 translate-middle-y pe-6 text-neutral-300" style="top: 20.5px;"><img src="../assets/images/activitydetails/calendar.svg" alt="" class="mb-1"></span>                
+                <span class="position-absolute end-0 translate-middle-y pe-6 text-neutral-300" style="top: 20.5px;"><img src="../assets/images/activitydetails/calendar_today.svg" alt="" class="mb-1"></span>                
                 <div id="datepicker-container" class="bg-white mt-5 shadow-xl rounded-4"></div>
             </form>
             
@@ -166,6 +169,54 @@
             const currentLength = goalInput.value.length;            
             charCounter.textContent = `${currentLength}/${maxLength}`;
         });
+    });
+    </script>
+    <!-- 提醒最多五人限制 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function () {        
+        const quantityInput = document.getElementById('quantity-input');
+        const plusBtn = document.getElementById('button-plus');
+        const minusBtn = document.getElementById('button-minus');
+        const errorMessage = document.getElementById('quantity-error');
+        const maxLimit = 5;
+        
+        function checkValue() {            
+            setTimeout(function() {
+                const currentValue = parseInt(quantityInput.value);
+                if (currentValue >= maxLimit) {                    
+                    errorMessage.classList.remove('d-none');
+                } else {                    
+                    errorMessage.classList.add('d-none');
+                }
+            }, 0);
+        }        
+        plusBtn.addEventListener('click', checkValue);
+        minusBtn.addEventListener('click', checkValue);        
+        quantityInput.addEventListener('input', checkValue);
+    });
+    </script>
+    <!-- 新增輸入框字數限制的提示 -->
+    <script>    
+    document.addEventListener('DOMContentLoaded', function() {        
+        
+        const goalInput = document.getElementById('activity-goal-input');
+        const charCounter = document.getElementById('char-counter');
+        
+        const maxLength = goalInput.getAttribute('maxlength');
+        
+        goalInput.addEventListener('input', function() {            
+            const currentLength = goalInput.value.length;            
+            charCounter.textContent = `${currentLength}/${maxLength}`;
+            
+            if (currentLength >= maxLength) {                
+                goalInput.classList.add('is-invalid');
+                charCounter.classList.add('text-danger');
+            } else {                
+                goalInput.classList.remove('is-invalid');
+                charCounter.classList.remove('text-danger');
+            }
+        });
+
     });
     </script>
   </body>
